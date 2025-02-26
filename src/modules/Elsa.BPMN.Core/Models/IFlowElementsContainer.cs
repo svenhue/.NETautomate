@@ -1,0 +1,49 @@
+/* Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+namespace Elsa.BPMN.Core.Models;
+
+using System.Collections.Generic;
+
+/// <summary>
+/// @author Tijs Rademakers
+/// </summary>
+public interface IFlowElementsContainer
+{
+    FlowElement GetFlowElement(string id);
+
+    ICollection<FlowElement> GetFlowElements();
+    
+    Dictionary<string, FlowElement> GetFlowElementMap();
+
+    void AddFlowElement(FlowElement element);
+
+    void AddFlowElementToMap(FlowElement element);
+
+    void RemoveFlowElement(string elementId);
+
+    void RemoveFlowElementFromMap(string elementId);
+
+    Artifact GetArtifact(string id);
+
+    ICollection<Artifact> GetArtifacts();
+    
+    Dictionary<string, Artifact> GetArtifactMap();
+
+    void AddArtifact(Artifact artifact);
+    
+    void AddArtifactToMap(Artifact artifact);
+
+    void RemoveArtifact(string artifactId);
+
+    string Id { get; }
+}
